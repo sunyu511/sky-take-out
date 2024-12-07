@@ -148,8 +148,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void update(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
+        //对象属性拷贝 前提必须是属性名一致的
         BeanUtils.copyProperties(employeeDTO, employee);
-
         employee.setUpdateTime(LocalDateTime.now());
         employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
