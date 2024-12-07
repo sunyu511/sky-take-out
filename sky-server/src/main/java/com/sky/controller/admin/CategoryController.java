@@ -85,6 +85,7 @@ public class CategoryController {
     @PostMapping("/status/{status}")
     @ApiOperation("启用禁用分类")
     public Result<String> startOrStop(@PathVariable("status") Integer status, Long id){
+        //此处注意如果该方法参数里面只有status的话，那么@PathVariable后面就不需要加括号进行指明了
         categoryService.startOrStop(status,id);
         return Result.success();
     }
@@ -96,6 +97,7 @@ public class CategoryController {
      */
     @GetMapping("/list")
     @ApiOperation("根据类型查询分类")
+    //1表示菜品分类 2表示套餐分类
     public Result<List<Category>> list(Integer type){
         List<Category> list = categoryService.list(type);
         return Result.success(list);

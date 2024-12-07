@@ -11,6 +11,7 @@ public interface SetmealMapper {
      * @param id
      * @return
      */
+    //setmeal这个数据库存储套餐种类
     @Select("select count(id) from setmeal where category_id = #{categoryId}")
     Integer countByCategoryId(Long id);
 

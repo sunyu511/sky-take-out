@@ -11,6 +11,7 @@ public interface DishMapper {
      * @param categoryId
      * @return
      */
+    //dish这个数据库存储菜品类型
     @Select("select count(id) from dish where category_id = #{categoryId}")
     Integer countByCategoryId(Long categoryId);
 
